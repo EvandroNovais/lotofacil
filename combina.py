@@ -12,4 +12,4 @@ def gerar_dados(numeros):
         #Salva no arquivo.
         arquivo.gravar(gerados)
     except:
-        print("Ocooreu um erro ao gerar os dados, tente novamente!")
+        print("Ocorreu um erro ao gerar os dados, tente novamente!")
