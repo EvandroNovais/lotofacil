@@ -1,4 +1,4 @@
 #.gitignore
 .txt
 .csv
-/files
+.files/
