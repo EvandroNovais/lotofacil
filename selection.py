@@ -7,7 +7,7 @@ componente = []
 with open("files\\gerados.txt", "r") as arquivo:
 	for linha in arquivo:
 		for num in linha.split(","):
-			numeros.append(int(num))	
+			numeros.append(int(num.strip(" ")))	
 		collection.append(numeros)
 		numeros = []
 	arquivo.close()
@@ -35,12 +35,27 @@ def selecionar():
 	conta_num = 0
 	ruim = 0
 	bom = 0
+	primo = 0
+	par = 0
+	impar = 0
+	fibonacci = 0
 	for lista in collection:
 		componente = lista
 		conta_lista += 1
 		#Percorre o componente	
 		for item in componente:
 			conta_num += 1
+			#verifica par/impar
+			if conta_num % 2 == 0:
+				par += 1
+			else:				
+				impar += 1
+			#Verifica primos
+			if conta_num in [2, 3, 5, 7, 11, 13, 17, 19, 23]:
+				primo += 1
+			#Verifica fibonacci
+			if conta_num in [1, 2, 3, 5, 8, 13, 21]:
+				fibonacci += 1
 			#Verifica bl01
 			if conta_num == 1:
 				if item in mirror01:
@@ -161,11 +176,11 @@ def selecionar():
 				else:
 					#print(item)
 					ruim += 1
-		if bom > 14:
-			arq.write("Jogo "  + str(conta_lista) + ", " + str(componente).replace("[", "").replace("]", "") + "\n")
-			#print(componente)
-			#print("Ruim: " + str(ruim))
-			#print("Bom: " + str(bom))
+			if bom > 14 and fibonacci > 4 and primo > 4 and par == 5 and impar > 6:
+				arq.write("Jogo "  + str(conta_lista) + ", " + str(componente).replace("[", "").replace("]", "") + "\n")
+				#print(componente)
+				#print("Ruim: " + str(ruim))
+				#print("Bom: " + str(bom))
 		bom = 0
 		ruim = 0
 		conta_num = 0
