@@ -4,7 +4,7 @@ import selection as sel
 #Inserir numeros
 numeros = []
 def carregar():
-    arq = open("files\\sorteado.txt", "r")
+    arq = open("C:\\dados\\ltfc\\sorteado.txt", "r")
     linha = arq.readline()
     for x in linha.split(","):
         numeros.append(int(x))

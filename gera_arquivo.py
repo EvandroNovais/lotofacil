@@ -1,7 +1,7 @@
 #Abre o arquivo para escrever.
 def gravar(gerados):
     try:
-        arq = open("files\\gerados.txt", "w")
+        arq = open("C:\\dados\ltfc\\gerados.txt", "w")
         for linha in gerados:
             arq.write(str(linha).replace("(","").replace(")","").replace(" ",""))
             arq.write("\n")

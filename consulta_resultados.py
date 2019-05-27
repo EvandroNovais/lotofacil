@@ -14,6 +14,11 @@ def find_results_compare(lista):
     contador = 0
     conta_jogos = 0
     collection = []
+    onz_pt = 0
+    doz_pt = 0
+    trz_pt = 0
+    qtz_pt = 0
+    quz_pt = 0
     meucursor.execute(
         "SELECT BL_01, BL_02, BL_03, BL_04, BL_05, BL_06, BL_07, BL_08, BL_09, BL_10,"+ 
         "BL_11, BL_12, BL_13, BL_14, BL_15 FROM LTFC"
@@ -25,18 +30,36 @@ def find_results_compare(lista):
         collection.append(jogo)
     #Verre cada linha da listagem passada e verifica se já foi sorteado.
     for i in collection:
-        if contador >= 13:
-            conta_jogos += 1
-            print("Jogo com " + str(contador) + " pontos")
-            print("--------------------------------")
+        if contador == 11:
+            onz_pt += 0
+        if contador == 12:
+            doz_pt += 1
+        if contador == 13:
+            trz_pt += 1
+        if contador == 1:
+            qtz_pt += 1
+        if contador == 15:
+            quz_pt += 1
         contador = 0
         for num in i:
             if num in lista:
                 contador += 1
-    if conta_jogos >= 1:
-        print("Jogos Premiados: " + str(conta_jogos))
+    if quz_pt == 0 and qtz_pt == 0 and trz_pt == 0 and doz_pt ==0:
+        return True
     else:
-        print("Nenhum Premiado.")
-
-listagem = [2,3,4,5,6,7,8,10,12,13,14,18,20,21,24]
-find_results_compare(listagem)
+        return False
+    """
+    print("Jogos com 11 pontos: " + str(onz_pt))
+    print("--------------------------------")
+    print("Jogos com 12 pontos: " + str(doz_pt))
+    print("--------------------------------")
+    print("Jogos com 13 pontos: " + str(trz_pt))
+    print("--------------------------------")
+    print("Jogos com 14 pontos: " + str(qtz_pt))
+    print("--------------------------------")
+    print("Jogos com 15 pontos: " + str(quz_pt))
+    print("--------------------------------")
+    conta_jogos = 0
+"""
+#listagem = [2,3,4,5,6,7,8,10,12,13,14,18,20,21,24]
+#find_results_compare(listagem)

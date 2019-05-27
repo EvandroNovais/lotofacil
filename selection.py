@@ -1,10 +1,11 @@
+import consulta_resultados as csr
 #Teste Comparação de listas.
 collection = []
 numeros = []
 componente = []
 
 #Lendo arquivo
-with open("files\\gerados.txt", "r") as arquivo:
+with open("C:\\dados\\ltfc\\gerados.txt", "r") as arquivo:
 	for linha in arquivo:
 		for num in linha.split(","):
 			numeros.append(int(num))	
@@ -30,7 +31,7 @@ mirror14 = [24, 23, 22]
 mirror15 = [25, 24, 23]
 
 def selecionar():
-	arq = open("files\\selecionados.csv", "w")
+	arq = open("C:\\dados\\ltfc\\selecionados.csv", "w")
 	conta_lista = 0
 	conta_num = 0
 	ruim = 0
@@ -179,9 +180,10 @@ def selecionar():
 					ruim += 1
 		if bom > 14 and fibonacci >= 4 and primo >= 4:
 			if pares <= 7 and impares >=7:
-				arq.write("Jogo "  + str(conta_lista) + ", " + str(componente).replace("[", "").replace("]", "") + "\n")
-				conta_selecao += 1
-
+				sorteou = csr.find_results_compare(componente)
+				if sorteou == True:
+					arq.write("Jogo "  + str(conta_lista) + ", " + str(componente).replace("[", "").replace("]", "") + "\n")
+					conta_selecao += 1
 		pares = 0
 		impares = 0
 		fibonacci = 0
