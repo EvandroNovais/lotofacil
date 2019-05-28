@@ -7,7 +7,7 @@ gerados = []
 def gerar_dados(numeros):
     try:
         #lista de numeros
-        for x in cmb(numeros, 15):
+        for x in cmb(numeros, 8):
             gerados.append(x)
         #Salva no arquivo.
         arquivo.gravar(gerados)

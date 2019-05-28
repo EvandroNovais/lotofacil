@@ -178,8 +178,8 @@ def selecionar():
 				else:
 					#print(item)
 					ruim += 1
-		if bom > 14 and fibonacci >= 4 and primo >= 4:
-			if pares <= 7 and impares >=7:
+		if bom > 14 and fibonacci >= 3 and primo >= 4 and primo <= 7:
+			if impares >= 7:
 				sorteou = csr.find_results_compare(componente)
 				if sorteou == True:
 					arq.write("Jogo "  + str(conta_lista) + ", " + str(componente).replace("[", "").replace("]", "") + "\n")

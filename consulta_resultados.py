@@ -10,7 +10,11 @@ def find_results():
     resultado = meucursor.fetchall()
     for linha in resultado:
         print(linha)
-def find_results_compare(lista):
+def find_results_compare(listagem):
+    lista = []
+    listagem = str(listagem).replace(" ","")
+    for dez in listagem.split(","):
+        lista.append(str(dez))
     contador = 0
     conta_jogos = 0
     collection = []
@@ -60,6 +64,6 @@ def find_results_compare(lista):
     print("Jogos com 15 pontos: " + str(quz_pt))
     print("--------------------------------")
     conta_jogos = 0
-"""
-#listagem = [2,3,4,5,6,7,8,10,12,13,14,18,20,21,24]
+    """
+#listagem = [1, 2, 3, 5, 7, 9, 12 , 13, 16, 17, 18, 20, 21, 23, 25]
 #find_results_compare(listagem)
